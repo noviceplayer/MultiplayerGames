@@ -43,6 +43,10 @@ io.on('connection', function(socket) {
       player.y += 5;
     }
   });
+  socket.on('run', function() {
+    var player = players[socket.id] || {};
+    player.x += 5;
+  });
 });
 
 setInterval(function() {
