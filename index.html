@@ -4,16 +4,23 @@
     <style>
       canvas {
         width: 800px;
-        height: 600px;
+        height: 500px;
         border: 5px solid black;
       }
+	  
+
+  .align-top-btn {
+    vertical-align: top; /* Aligns the button to the top of the line */
+  }
     </style>
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
+  <div class="container">
     <canvas id="canvas"></canvas>
-    <button id="myButton">Click Me</button>
-    <p id="output">Button not clicked yet.</p>
+    <button class="align-top-btn" style="width: 150px; height: 500px;" id="myButton">Click Me</button>
+    </div>
+	 <p id="output">Button not clicked yet.</p>
   </body>
   <script src="/static/game.js"></script>
 </html>
