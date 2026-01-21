@@ -45,6 +45,7 @@ const outputParagraph = document.getElementById('output');
 myButton.addEventListener('click', function() {
     outputParagraph.textContent = 'Button was clicked using an anonymous function!';
     console.log('Button clicked!');
+    socket.emit('run');
 });
 
 socket.emit('new player');
