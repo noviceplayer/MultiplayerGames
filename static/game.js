@@ -59,8 +59,8 @@ canvas.height = 400;
 var context = canvas.getContext('2d');
 
 // The URL of the image you want to load
-const imageUrl = './image/bg.png'; // Example image URL
-const imagePUrl = './image/p.png'; // Example image URL
+const imageUrl = './MultiplayerGames/image/bg.png'; // Example image URL
+const imagePUrl = './MultiplayerGames/image/p.png'; // Example image URL
 // Create a new Image object
 const img = new Image();
 const player_img = new Image();
@@ -86,7 +86,7 @@ player_img.src = imagePUrl;
 
 socket.on('state', function(players) {
   console.log(players);
-  context.clearRect(0, 0, 700, 400);
+  //context.clearRect(0, 0, 700, 400);
   // context.fillStyle = 'green';
   for (var id in players) {
     var player = players[id];
