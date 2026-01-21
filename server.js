@@ -8,6 +8,8 @@ var app = express();
 var server = http.Server(app);
 var io = socketIO(server);
 
+var playerCount = 0;
+
 app.set('port', 5000);
 app.use('/static', express.static(__dirname + '/static'));
 
@@ -25,8 +27,9 @@ io.on('connection', function(socket) {
   socket.on('new player', function() {
     players[socket.id] = {
       x: 300,
-      y: 100 + (socket.id * 50)
+      y: 100 + (playerCount * 50)
     };
+    playerCount += 1;
   });
   socket.on('movement', function(data) {
     var player = players[socket.id] || {};
