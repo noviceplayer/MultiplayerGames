@@ -70,6 +70,11 @@ img.onload = function() {
     // ctx.drawImage(img, 0, 0);
 	context.drawImage(img, 0, 0, canvas.width, canvas.height);
 };
+img.onerror = function() {
+    console.error("Error loading the image from the provided URL.");
+    ctx.fillStyle = 'red';
+    ctx.fillText('Image failed to load', 10, 20);
+};
 player_img.onload = function() {
     // Draw the image onto the canvas at coordinates (0, 0)
     // ctx.drawImage(img, 0, 0);
