@@ -59,8 +59,8 @@ canvas.height = 400;
 var context = canvas.getContext('2d');
 
 // The URL of the image you want to load
-const imageUrl = 'image/bg.png'; // Example image URL
-const imagePUrl = 'image/p.png'; // Example image URL
+const imageUrl = './image/bg.png'; // Example image URL
+const imagePUrl = './image/p.png'; // Example image URL
 // Create a new Image object
 const img = new Image();
 const player_img = new Image();
