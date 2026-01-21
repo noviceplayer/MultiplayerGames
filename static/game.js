@@ -72,8 +72,8 @@ img.onload = function() {
 };
 img.onerror = function() {
     console.error("Error loading the image from the provided URL.");
-    ctx.fillStyle = 'red';
-    ctx.fillText('Image failed to load', 10, 20);
+    context.fillStyle = 'red';
+    context.fillText('Image failed to load', 10, 20);
 };
 player_img.onload = function() {
     // Draw the image onto the canvas at coordinates (0, 0)
