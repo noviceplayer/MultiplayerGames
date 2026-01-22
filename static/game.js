@@ -47,11 +47,11 @@ document.addEventListener('click', (event) => {
 const myButton = document.getElementById('myButton');
 const outputParagraph = document.getElementById('output');
 
-myButton.addEventListener('click', function() {
-    outputParagraph.textContent = 'Button was clicked using an anonymous function!';
-    console.log('Button clicked!');
-    socket.emit('run');
-});
+//myButton.addEventListener('click', function() {
+//    outputParagraph.textContent = 'Button was clicked using an anonymous function!';
+//    console.log('Button clicked!');
+//    socket.emit('run');
+//});
 
 socket.emit('new player');
 setInterval(function() {
