@@ -39,7 +39,7 @@ document.addEventListener('keyup', function(event) {
   }
 });
 
-document.addEventListener('touchend', (event) => {
+document.addEventListener('click', (event) => {
   socket.emit('run');
 }, false);
 
