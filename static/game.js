@@ -86,8 +86,9 @@ player_img.src = imagePUrl;
 
 socket.on('state', function(players) {
   console.log(players);
-  //context.clearRect(0, 0, 700, 400);
+  context.clearRect(0, 0, 700, 400);
   // context.fillStyle = 'green';
+  context.drawImage(img, 0, 0, canvas.width, canvas.height);
   for (var id in players) {
     var player = players[id];
     context.drawImage(player_img, player.x, player.y);
