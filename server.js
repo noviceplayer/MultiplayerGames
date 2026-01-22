@@ -26,8 +26,8 @@ var players = {};
 io.on('connection', function(socket) {
   socket.on('new player', function() {
     players[socket.id] = {
-      x: 300,
-      y: 100 + (playerCount * 50)
+      x: 50,
+      y: 80 + (playerCount * 50)
     };
     playerCount += 1;
   });
