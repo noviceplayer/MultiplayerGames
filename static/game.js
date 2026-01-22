@@ -39,6 +39,11 @@ document.addEventListener('keyup', function(event) {
   }
 });
 
+document.addEventListener('touchend', (event) => {
+  socket.emit('run');
+}, false);
+
+
 const myButton = document.getElementById('myButton');
 const outputParagraph = document.getElementById('output');
 
