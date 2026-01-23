@@ -6,6 +6,9 @@ var movement = {
   left: false,
   right: false
 }
+
+var name = '';
+
 document.addEventListener('keydown', function(event) {
   switch (event.keyCode) {
     case 65: // A
@@ -63,6 +66,7 @@ function closePopup() {
 
 function submitData() {
   var input = document.getElementById("userInput").value;
+	name = input;
   socket.emit('new player', input);
   closePopup();
 }
@@ -112,6 +116,8 @@ socket.on('state', function(players) {
   for (var id in players) {
     var player = players[id];
     context.drawImage(player_img, player.x, player.y);
+	  context.fillStyle = 'green';
+	  context.fillText(''+name, player.x, player.y);
     //context.beginPath();
     //context.arc(player.x, player.y, 10, 0, 2 * Math.PI);
     //context.fill();
