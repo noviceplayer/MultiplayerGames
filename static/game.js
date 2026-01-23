@@ -83,14 +83,14 @@ canvas.height = 400;
 var context = canvas.getContext('2d');
 
 function drawStroked(text, x, y) {
-    ctx.font = "20px Sans-serif"
-    ctx.strokeStyle = 'black';
-    ctx.lineWidth = 8;
-    ctx.lineJoin="miter"; //Experiment with "bevel" & "round" for the effect you want!
-	ctx.miterLimit=2;
-    ctx.strokeText(text, x, y);
-    ctx.fillStyle = 'white';
-    ctx.fillText(text, x, y);
+    context.font = "20px Sans-serif"
+    context.strokeStyle = 'black';
+    context.lineWidth = 8;
+    context.lineJoin="miter"; //Experiment with "bevel" & "round" for the effect you want!
+	context.miterLimit=2;
+    context.strokeText(text, x, y);
+    context.fillStyle = 'white';
+    context.fillText(text, x, y);
 }
 
 // The URL of the image you want to load
