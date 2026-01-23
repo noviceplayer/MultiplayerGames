@@ -28,6 +28,7 @@ io.on('connection', function(socket) {
   socket.on('new player', function(s) {
     name = s;
     players[socket.id] = {
+      name: s,
       x: 50,
       y: 80 + (playerCount * 50)
     };
