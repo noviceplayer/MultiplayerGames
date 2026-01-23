@@ -116,8 +116,9 @@ socket.on('state', function(players) {
   for (var id in players) {
     var player = players[id];
     context.drawImage(player_img, player.x, player.y);
+	  ctx.font = "20px Arial";
 	  context.fillStyle = 'green';
-	  context.fillText(''+name, player.x, player.y);
+	  context.fillText(''+name, player.x+50, player.y);
     //context.beginPath();
     //context.arc(player.x, player.y, 10, 0, 2 * Math.PI);
     //context.fill();
