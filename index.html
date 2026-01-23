@@ -15,6 +15,7 @@
   }
     </style>
     <script src="/socket.io/socket.io.js"></script>
+	  <link rel="stylesheet" href="styles.css">
   </head>
   <body>
   <div class="container">
@@ -22,6 +23,14 @@
     
     </div>
 	 <p id="output">Button not clicked yet.</p>
+	  <div id="myPopup" class="popup-container">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <h1>Please enter your name:</h1>
+    <input type="text" id="userInput" placeholder="Enter name here...">
+	<input class="submit" value="Submit" type="button" onclick="submitData()"/>
+  </div>
+</div>
   </body>
   <script src="/static/game.js"></script>
 </html>
