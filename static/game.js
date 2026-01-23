@@ -82,6 +82,17 @@ canvas.width = 700;
 canvas.height = 400;
 var context = canvas.getContext('2d');
 
+function drawStroked(text, x, y) {
+    ctx.font = "20px Sans-serif"
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 8;
+    ctx.lineJoin="miter"; //Experiment with "bevel" & "round" for the effect you want!
+	ctx.miterLimit=2;
+    ctx.strokeText(text, x, y);
+    ctx.fillStyle = 'white';
+    ctx.fillText(text, x, y);
+}
+
 // The URL of the image you want to load
 const imageUrl = 'https://raw.githubusercontent.com/noviceplayer/MultiplayerGames/refs/heads/master/images/bg.png'; // Example image URL
 const imagePUrl = 'https://raw.githubusercontent.com/noviceplayer/MultiplayerGames/refs/heads/master/images/p.png'; // Example image URL
@@ -116,9 +127,10 @@ socket.on('state', function(players) {
   for (var id in players) {
     var player = players[id];
     context.drawImage(player_img, player.x, player.y);
-	  context.font = "20px Arial";
-	  context.fillStyle = 'green';
-	  context.fillText(''+name, player.x+50, player.y);
+	  drawStroked(""+name, player.x+50, player.y+20);
+	  //context.font = "20px Arial";
+	  //context.fillStyle = 'green';
+	  //context.fillText(''+name, player.x+50, player.y);
     //context.beginPath();
     //context.arc(player.x, player.y, 10, 0, 2 * Math.PI);
     //context.fill();
