@@ -127,7 +127,7 @@ socket.on('state', function(players) {
   for (var id in players) {
     var player = players[id];
     context.drawImage(player_img, player.x, player.y);
-	  drawStroked(""+name, player.x+50, player.y+20);
+	  drawStroked(""+player.name, player.x+50, player.y+20);
 	  //context.font = "20px Arial";
 	  //context.fillStyle = 'green';
 	  //context.fillText(''+name, player.x+50, player.y);
