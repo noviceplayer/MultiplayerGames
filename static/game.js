@@ -53,10 +53,25 @@ const outputParagraph = document.getElementById('output');
 //    socket.emit('run');
 //});
 
-socket.emit('new player');
-setInterval(function() {
-  socket.emit('movement', movement);
-}, 1000 / 60);
+window.onload = function() {
+  document.getElementById("myPopup").style.display = "block";
+};
+
+function closePopup() {
+  document.getElementById("myPopup").style.display = "none";
+}
+
+function submitData() {
+  var input = document.getElementById("userInput").value;
+  socket.emit('new player', input);
+  closePopup();
+}
+
+
+// socket.emit('new player');
+//setInterval(function() {
+//  socket.emit('movement', movement);
+//}, 1000 / 60);
 
 var canvas = document.getElementById('canvas');
 canvas.width = 700;
