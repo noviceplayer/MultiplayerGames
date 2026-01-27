@@ -78,11 +78,11 @@ io.on('connection', function(socket) {
 setInterval(function() {
   if (gameover == false) {
     var countdown = -1;
-    if (gamestart == false && starttime > 0) {
+    if (starttime > 0) {
       countdown = Math.round((starttime - Date.now())/1000);
-    if (countdown<=0) {
-      gamestart = true;
-    }
+      if (countdown<=0) {
+        gamestart = true;
+      }
     }
     io.sockets.emit('state', players, countdown);
   }
