@@ -56,7 +56,7 @@ io.on('connection', function(socket) {
   });
   socket.on('run', function() {
     var player = players[socket.id] || {};
-    if (gameover == false && gmaestart == true) {
+    if (gameover == false && gamestart == true) {
       player.x += 15;
       if (player.x >= 600) {
       gameover = true;
