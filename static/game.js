@@ -138,7 +138,7 @@ socket.on('state', function(players, countdown) {
 	if (countdown == 0){
 	drawStroked("START", 300, 200);
 	}else if (countdown > 0 ){
-	drawStroked(countdown, 300, 200);
+	drawStroked(""+countdown, 300, 200);
 	}
 });
 
