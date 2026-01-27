@@ -135,7 +135,11 @@ socket.on('state', function(players, countdown) {
     //context.arc(player.x, player.y, 10, 0, 2 * Math.PI);
     //context.fill();
   }
+	if (countdown == 0){
+	drawStroked("START", 300, 200);
+	}else if (countdown > 0 ){
 	drawStroked(countdown, 300, 200);
+	}
 });
 
 socket.on('win', function(player) {
