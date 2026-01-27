@@ -64,6 +64,7 @@ io.on('connection', function(socket) {
     console.log("reset game");
     gameover = false;
           gamestart = false;
+          starttime = 0;
           playerCount = 0;
           players = {};
     }, 5000);
@@ -77,7 +78,7 @@ io.on('connection', function(socket) {
 setInterval(function() {
   if (gameover == false) {
     var countdown = -1;
-    if (gamestart == false) {
+    if (gamestart == false && starttime > 0) {
       countdown = Math.round((starttime - Date.now())/1000);
     if (countdown<=0) {
       gamestart = true;
