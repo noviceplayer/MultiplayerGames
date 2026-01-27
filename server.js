@@ -10,6 +10,8 @@ var io = socketIO(server);
 
 var playerCount = 0;
 var gameover = false;
+var gamestart = false;
+var starttime = 0;
 
 app.set('port', 5000);
 app.use('/static', express.static(__dirname + '/static'));
@@ -33,6 +35,9 @@ io.on('connection', function(socket) {
       y: 80 + (playerCount * 50)
     };
     playerCount += 1;
+    if (playerCount <= 10) {
+      starttime = Date.now()+3000;
+    }
   });
   socket.on('movement', function(data) {
     var player = players[socket.id] || {};
@@ -70,6 +75,8 @@ io.on('connection', function(socket) {
 
 setInterval(function() {
   if (gameover == false) {
-    io.sockets.emit('state', players);
+    var countdown = ""+Math.round((starttime - Date.now())/1000);
+    
+    io.sockets.emit('state', players, countdown);
   }
 }, 1000 / 60);
