@@ -9,6 +9,7 @@ var server = http.Server(app);
 var io = socketIO(server);
 
 var playerCount = 0;
+var gameover = false;
 
 app.set('port', 5000);
 app.use('/static', express.static(__dirname + '/static'));
@@ -51,7 +52,14 @@ io.on('connection', function(socket) {
   });
   socket.on('run', function() {
     var player = players[socket.id] || {};
-    player.x += 5;
+    if (gameover == false) {
+      player.x += 5;
+      if (player.x >= 650) {
+      gameover = true;
+      io.sockets.emit('win', player);
+    }
+    }
+    
   });
 });
 
