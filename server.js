@@ -75,7 +75,7 @@ io.on('connection', function(socket) {
 
 setInterval(function() {
   if (gameover == false) {
-    var countdown = ""+Math.round((starttime - Date.now())/1000);
+    var countdown = Math.round((starttime - Date.now())/1000);
     
     io.sockets.emit('state', players, countdown);
   }
