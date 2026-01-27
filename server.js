@@ -56,13 +56,14 @@ io.on('connection', function(socket) {
   });
   socket.on('run', function() {
     var player = players[socket.id] || {};
-    if (gameover == false) {
+    if (gameover == false && gmaestart == true) {
       player.x += 15;
       if (player.x >= 600) {
       gameover = true;
         setTimeout(() => {
     console.log("reset game");
     gameover = false;
+          gamestart = false;
           playerCount = 0;
           players = {};
     }, 5000);
@@ -75,8 +76,13 @@ io.on('connection', function(socket) {
 
 setInterval(function() {
   if (gameover == false) {
-    var countdown = Math.round((starttime - Date.now())/1000);
-    
+    var countdown = -1;
+    if (gamestart == false) {
+      countdown = Math.round((starttime - Date.now())/1000);
+    if (countdown<=0) {
+      gamestart = true;
+    }
+    }
     io.sockets.emit('state', players, countdown);
   }
 }, 1000 / 60);
