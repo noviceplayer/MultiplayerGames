@@ -119,7 +119,7 @@ player_img.onload = function() {
 img.src = imageUrl;
 player_img.src = imagePUrl;
 
-socket.on('state', function(players) {
+socket.on('state', function(players, countdown) {
   console.log(players);
   context.clearRect(0, 0, 700, 400);
   // context.fillStyle = 'green';
@@ -135,6 +135,7 @@ socket.on('state', function(players) {
     //context.arc(player.x, player.y, 10, 0, 2 * Math.PI);
     //context.fill();
   }
+	drawStroked(countdown, 300, 200);
 });
 
 socket.on('win', function(player) {
