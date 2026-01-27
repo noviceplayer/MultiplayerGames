@@ -53,8 +53,8 @@ io.on('connection', function(socket) {
   socket.on('run', function() {
     var player = players[socket.id] || {};
     if (gameover == false) {
-      player.x += 5;
-      if (player.x >= 650) {
+      player.x += 15;
+      if (player.x >= 600) {
       gameover = true;
       io.sockets.emit('win', player);
     }
@@ -64,5 +64,7 @@ io.on('connection', function(socket) {
 });
 
 setInterval(function() {
-  io.sockets.emit('state', players);
+  if (gameover == false) {
+    io.sockets.emit('state', players);
+  }
 }, 1000 / 60);
