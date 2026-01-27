@@ -24,10 +24,9 @@ server.listen(5000, function() {
 });
 
 var players = {};
-var name = '';
+
 io.on('connection', function(socket) {
   socket.on('new player', function(s) {
-    name = s;
     players[socket.id] = {
       name: s,
       x: 50,
@@ -56,6 +55,12 @@ io.on('connection', function(socket) {
       player.x += 15;
       if (player.x >= 600) {
       gameover = true;
+        setTimeout(() => {
+    console.log("reset game");
+    gameover = false;
+          playerCount = 0;
+          players = {};
+    }, 5000);
       io.sockets.emit('win', player);
     }
     }
