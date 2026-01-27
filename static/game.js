@@ -136,3 +136,9 @@ socket.on('state', function(players) {
     //context.fill();
   }
 });
+
+socket.on('win', function(player) {
+	console.log(player);
+	drawStroked("Winner", 300, 100);
+	drawStroked(""+player.name, 300, 200);
+});
