@@ -180,7 +180,7 @@ socket.on('state', function(players, countdown) {
   for (var id in players) {
     var player = players[id];
     //context.drawImage(player_img, player.x, player.y);
-	  context.drawImage(sprite, column * frameWidth, row * frameHeight, frameWidth, frameHeight, player.x, player.y, 128, 128);
+	  context.drawImage(sprite, column * frameWidth, row * frameHeight, frameWidth, frameHeight, player.x, player.y, 96, 96);
 	  drawStroked(""+player.name, player.x+50, player.y+20);
 	  //context.font = "20px Arial";
 	  //context.fillStyle = 'green';
