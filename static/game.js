@@ -119,6 +119,34 @@ player_img.onload = function() {
 img.src = imageUrl;
 player_img.src = imagePUrl;
 
+// Create a new Image object
+const sprite = new Image();
+
+// Handle potential errors during image loading
+sprite.onerror = function() {
+    console.error("Error loading the image from the provided URL.");
+    ctx.fillStyle = 'red';
+    ctx.fillText('Image failed to load', 10, 20);
+}
+
+// Set the source of the image. This starts the loading process.
+sprite.src = imagePUrl;
+
+// Define the number of columns and rows in the sprite
+let numColumns = 5;
+let numRows = 1;
+
+// Define the size of a frame
+let frameWidth = 128;
+let frameHeight = 128;
+
+let column = 0;
+let row = 0;
+
+let currentFrame = 0;
+
+var gamestart = false;
+
 socket.on('state', function(players, countdown) {
   console.log(players);
   context.clearRect(0, 0, 700, 400);
@@ -126,7 +154,8 @@ socket.on('state', function(players, countdown) {
   context.drawImage(img, 0, 0, canvas.width, canvas.height);
   for (var id in players) {
     var player = players[id];
-    context.drawImage(player_img, player.x, player.y);
+    //context.drawImage(player_img, player.x, player.y);
+	  context.drawImage(sprite, column * frameWidth, row * frameHeight, frameWidth, frameHeight, player.x, player.y, 128, 128);
 	  drawStroked(""+player.name, player.x+50, player.y+20);
 	  //context.font = "20px Arial";
 	  //context.fillStyle = 'green';
@@ -137,6 +166,10 @@ socket.on('state', function(players, countdown) {
   }
 	if (countdown == 0){
 	drawStroked("START", 300, 200);
+		if (gamestart == false){
+			gamestart = true;
+			setInterval(runSprite(), 100);
+		}
 	}else if (countdown > 0 ){
 	drawStroked(""+countdown, 300, 200);
 	}
@@ -147,3 +180,26 @@ socket.on('win', function(player) {
 	drawStroked("Winner", 300, 100);
 	drawStroked(""+player.name, 300, 200);
 });
+
+function runSprite()
+{
+    // Pick a new frame
+    currentFrame++;
+
+    // Make the frames loop
+    let maxFrame = numColumns * numRows - 1;
+    if (currentFrame > maxFrame){
+        currentFrame = 0;
+    }
+
+    // Update rows and columns
+    let column = currentFrame % numColumns;
+    let row = Math.floor(currentFrame / numColumns);
+
+    // Clear and draw
+    //ctx.clearRect(0, 0, canvas.width, canvas.height);
+	//ctx.drawImage(sprite, 0, 0);
+    //ctx.drawImage(sprite, column * frameWidth, row * frameHeight, frameWidth, frameHeight, 10, 30, 64, 64);
+
+//Wait for next step in the loop
+}
