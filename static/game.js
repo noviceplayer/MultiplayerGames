@@ -147,6 +147,29 @@ let currentFrame = 0;
 
 var gamestart = false;
 
+function runSprite()
+{
+    // Pick a new frame
+    currentFrame++;
+
+    // Make the frames loop
+    let maxFrame = numColumns * numRows - 1;
+    if (currentFrame > maxFrame){
+        currentFrame = 0;
+    }
+
+    // Update rows and columns
+    let column = currentFrame % numColumns;
+    let row = Math.floor(currentFrame / numColumns);
+
+    // Clear and draw
+    //ctx.clearRect(0, 0, canvas.width, canvas.height);
+	//ctx.drawImage(sprite, 0, 0);
+    //ctx.drawImage(sprite, column * frameWidth, row * frameHeight, frameWidth, frameHeight, 10, 30, 64, 64);
+
+//Wait for next step in the loop
+}
+
 socket.on('state', function(players, countdown) {
   console.log(players);
   context.clearRect(0, 0, 700, 400);
@@ -181,25 +204,4 @@ socket.on('win', function(player) {
 	drawStroked(""+player.name, 300, 200);
 });
 
-function runSprite()
-{
-    // Pick a new frame
-    currentFrame++;
 
-    // Make the frames loop
-    let maxFrame = numColumns * numRows - 1;
-    if (currentFrame > maxFrame){
-        currentFrame = 0;
-    }
-
-    // Update rows and columns
-    let column = currentFrame % numColumns;
-    let row = Math.floor(currentFrame / numColumns);
-
-    // Clear and draw
-    //ctx.clearRect(0, 0, canvas.width, canvas.height);
-	//ctx.drawImage(sprite, 0, 0);
-    //ctx.drawImage(sprite, column * frameWidth, row * frameHeight, frameWidth, frameHeight, 10, 30, 64, 64);
-
-//Wait for next step in the loop
-}
