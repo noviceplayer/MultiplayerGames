@@ -133,17 +133,17 @@ sprite.onerror = function() {
 sprite.src = imagePUrl;
 
 // Define the number of columns and rows in the sprite
-let numColumns = 5;
-let numRows = 1;
+var numColumns = 5;
+var numRows = 1;
 
 // Define the size of a frame
-let frameWidth = 128;
-let frameHeight = 128;
+var frameWidth = 128;
+var frameHeight = 128;
 
-let column = 0;
-let row = 0;
+var column = 0;
+var row = 0;
 
-let currentFrame = 0;
+var currentFrame = 0;
 
 var gamestart = false;
 
@@ -153,14 +153,14 @@ function runSprite()
     currentFrame++;
 
     // Make the frames loop
-    let maxFrame = numColumns * numRows - 1;
+    maxFrame = numColumns * numRows - 1;
     if (currentFrame > maxFrame){
         currentFrame = 0;
     }
 
     // Update rows and columns
-    let column = currentFrame % numColumns;
-    let row = Math.floor(currentFrame / numColumns);
+    column = currentFrame % numColumns;
+    row = Math.floor(currentFrame / numColumns);
 
 	context.fillStyle = 'red';
     context.fillText('sprite run', 10, 20);
