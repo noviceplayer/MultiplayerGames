@@ -94,7 +94,7 @@ function drawStroked(text, x, y) {
 }
 
 // The URL of the image you want to load
-const imageUrl = 'https://raw.githubusercontent.com/noviceplayer/MultiplayerGames/refs/heads/master/images/bg.png'; // Example image URL
+const imageUrl = 'https://raw.githubusercontent.com/noviceplayer/MultiplayerGames/refs/heads/master/images/bg0.jpg'; // Example image URL
 const imagePUrl = 'https://raw.githubusercontent.com/noviceplayer/MultiplayerGames/refs/heads/master/images/s0.png'; // Example image URL
 // Create a new Image object
 const img = new Image();
