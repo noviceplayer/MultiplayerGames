@@ -191,7 +191,7 @@ socket.on('state', function(players, countdown) {
 	drawStroked("START", 300, 200);
 		if (gamestart == false){
 			gamestart = true;
-			setInterval(runSprite(), 100);
+			setInterval(runSprite, 100);
 		}
 	}else if (countdown > 0 ){
 	drawStroked(""+countdown, 300, 200);
