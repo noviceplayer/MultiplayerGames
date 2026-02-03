@@ -125,8 +125,8 @@ const sprite = new Image();
 // Handle potential errors during image loading
 sprite.onerror = function() {
     console.error("Error loading the image from the provided URL.");
-    ctx.fillStyle = 'red';
-    ctx.fillText('Image failed to load', 10, 20);
+    context.fillStyle = 'red';
+    context.fillText('Image failed to load', 10, 20);
 }
 
 // Set the source of the image. This starts the loading process.
@@ -162,6 +162,8 @@ function runSprite()
     let column = currentFrame % numColumns;
     let row = Math.floor(currentFrame / numColumns);
 
+	context.fillStyle = 'red';
+    context.fillText('sprite run', 10, 20);
     // Clear and draw
     //ctx.clearRect(0, 0, canvas.width, canvas.height);
 	//ctx.drawImage(sprite, 0, 0);
